@@ -19,7 +19,7 @@ final class PublishController extends Controller
 
         $publisher = new Publisher('http://web/.well-known/mercure', new StaticJwtProvider(self::JWT));
         // Serialize the update, and dispatch it to the hub, that will broadcast it to the clients
-        $id = $publisher(new Update('https://example.com/books/1.jsonld', $request->message, ['target1', 'target2']));
+        $id = $publisher(new Update('https://example.com/books/1.jsonld', $request->message));
 
         return response()->json($id);
     }
