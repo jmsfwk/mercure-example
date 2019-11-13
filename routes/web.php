@@ -12,6 +12,10 @@
 */
 
 Route::get('/', function () {
+    $jwt = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZXJjdXJlIjp7InN1YnNjcmliZSI6WyIqIl19fQ.zJbUboXSfhcHK7QMU28MyRmfg3f3JC5_nC_YM98tqyA';
+    $cookie = cookie('mercureAuthentication', $jwt, 10);
+    cookie()->queue($cookie);
+
     return view('welcome');
 });
 
