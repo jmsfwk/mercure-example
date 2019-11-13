@@ -25,6 +25,9 @@ export default {
     })
     this.eventSource = new EventSource(url)
     this.eventSource.addEventListener('message', this.push)
+    window.addEventListener('beforeunload', () => {
+      this.eventSource.close()
+    })
   },
   destroyed () {
     this.eventSource.close()
