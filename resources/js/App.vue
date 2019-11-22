@@ -17,6 +17,7 @@
             <div class="col-6">
                 <h2>Subscribe</h2>
                 <Subscribe :topics="topics"/>
+                <Subscribe type="socks" :topics="topics"/>
             </div>
         </div>
     </div>

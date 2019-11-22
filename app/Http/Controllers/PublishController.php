@@ -14,12 +14,14 @@ final class PublishController extends Controller
     public function __invoke(Request $request)
     {
         $this->validate($request, [
+            'type' => 'nullable',
             'message' => 'required',
         ]);
 
         $publisher = new Publisher('http://web/.well-known/mercure', new StaticJwtProvider(self::JWT));
         // Serialize the update, and dispatch it to the hub, that will broadcast it to the clients
         $id = $publisher(new Update('http://localhost', $request->message));
+        $id = $publisher(new Update('http://localhost', $request->message, [], null, $request->input('type')));
 
         return response()->json($id);
     }
