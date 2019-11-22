@@ -29,7 +29,7 @@ import Subscribe from './components/Subscribe'
 export default {
   name: 'App',
   data: () => ({
-    topics: ['https://example.com/books/1.jsonld']
+    topics: ['http://localhost']
   }),
   components: {
     Publish,
